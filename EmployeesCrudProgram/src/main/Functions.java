@@ -1,9 +1,11 @@
 package main;
 
 import java.util.Random;
+import java.util.Scanner;
 
 public class Functions {
 	private Random random = new Random();
+	public Scanner s = new Scanner(System.in);
 	
 	protected String codeNameMaker() {
 		String alphabeth = "QWERTYUIOPASDFGHJKLZXCVBNM";
@@ -15,7 +17,8 @@ public class Functions {
 			if(i < 2) {
 				char randomCode = alphabeth.charAt(random.nextInt(alphabeth.length()));
 				codeNameBuilder.append(randomCode);
-			} else if(i == 2) {
+			} else if(i ==-+
+					2) {
 				codeNameBuilder.append("-");
 			} else {
 				codeNameBuilder.append(random.nextInt(9));
@@ -36,5 +39,16 @@ public class Functions {
 		}
 		
 		return 0;
+	}
+	
+	protected String inputName() {
+		String name = null;
+		do {
+			System.out.print("Input Employees Name [min : 3]> ");
+			name = s.nextLine();
+		} while (name.length() < 3);
+		
+		
+		return name;
 	}
 }	

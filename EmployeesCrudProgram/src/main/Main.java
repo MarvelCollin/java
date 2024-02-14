@@ -3,17 +3,16 @@ package main;
 
 import java.util.Collections;
 import java.util.Comparator;
-import java.util.Random;
 import java.util.Scanner;
 import java.util.Vector;
 
 import models.Employees;
 
 public class Main {
-	private Scanner s = new Scanner(System.in);
-	private Functions func = new Functions();
+//	private Scanner s = new Scanner(System.in);
+	Functions func = new Functions();
 	private Vector<Employees> employee = new Vector<Employees>();
-
+	
 	private void clr() {
 		for(int i = 0; i < 40; i++) {
 			System.out.println();
@@ -28,19 +27,16 @@ public class Main {
 		String position = null;
 		double salary = 0;
 		
-		do {
-			System.out.print("Input Employees Name [min : 3]> ");
-			name = s.nextLine();
-		} while (name.length() < 3);
+		name = func.inputName();
 		
 		do {
 			System.out.print("Input " + name + "'s Gender [Male | Female] > ");
-			gender = s.nextLine();
+			gender = func.s.nextLine();
 		} while(!gender.equals("Male") && !gender.equals("Female"));
 		
 		do {
 			System.out.print("Input " + name + "'s Position [Manager | Supervisor | Programmer] > ");
-			position = s.nextLine();
+			position = func.s.nextLine();
 		} while (!position.equals("Manager") && !position.equals("Supervisor") && !position.equals("Programmer"));
 		
 		codeName = func.codeNameMaker();
@@ -54,8 +50,7 @@ public class Main {
 	
 	private void show() {
 		clr();
-		employee.add(new Employees("IP-1231", "Ipana", "Female", "asdijas", 12312));
-		employee.add(new Employees("MC-123", "Aolin", "Male", "asdijas", 12312));  
+		
 		
 		Collections.sort(employee, Comparator.comparing(Employees::getName));
 		
@@ -75,7 +70,7 @@ public class Main {
 		show();
 		
 		System.out.println("Enter anything to continue...");
-		s.nextLine();
+		func.s.nextLine();
 		menu();
 	}
 	
@@ -85,10 +80,20 @@ public class Main {
 		int choice = 0;
 		
 		do {
-			System.out.print("Input number to update > ");
-			choice = s.nextInt(); s.nextLine();
+			System.out.print("Input number to update[1-" + employee.size() + "] > ");
+			choice = func.s.nextInt(); func.s.nextLine();
 		} while (choice < 1 || choice > employee.size());
 		
+//		employee[1]; array -> get
+//		string -> indexOf
+		
+		
+//		employee.get(choice - 1).setCodeName();
+		
+		System.out.println("Press Anything to Continue");
+		func.s.nextLine();
+		
+		menu();
 		
 	}
 	
@@ -103,7 +108,7 @@ public class Main {
 			System.out.println("4. Delete Employees");
 			System.out.println("5. Exit Program");
 			System.out.print("Please input your choices > ");
-			choice = s.nextInt(); s.nextLine();
+			choice = func.s.nextInt(); func.s.nextLine();
 		} while (choice < 1 || choice > 5);
 		
 		switch(choice) {
@@ -111,10 +116,10 @@ public class Main {
 			insert();
 			break;
 		case 2:
-			System.out.println("View");
+			view();
 			break;
 		case 3:
-			System.out.println("Update");
+			update();
 			break;
 		case 4:
 			System.out.println("Delete");
@@ -125,9 +130,10 @@ public class Main {
 	}
 	
 	public Main() {
-//		menu();
-		view();
-		
+		employee.add(new Employees("IP-1231", "Ipana", "Female", "asdijas", 12312));
+		employee.add(new Employees("MC-123", "Aolin", "Male", "asdijas", 12312));  
+		menu();
+//		System.out.println("asdasd");
 	}
 	
 	public static void main(String[] args) {
