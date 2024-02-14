@@ -10,7 +10,7 @@ public class Employees {
 	public Employees(String codeName, String name, String gender, String position, double salary) {
 		super();
 		this.codeName = codeName;
-		this.name = name;
+		this.name = name;	
 		this.gender = gender;
 		this.position = position;
 		this.salary = salary;

@@ -1,6 +1,5 @@
 package main;
 
-
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.Scanner;
@@ -9,9 +8,10 @@ import java.util.Vector;
 import models.Employees;
 
 public class Main {
-//	private Scanner s = new Scanner(System.in);
 	Functions func = new Functions();
 	private Vector<Employees> employee = new Vector<Employees>();
+
+	int currentManager = 0, currentSupervisor = 0, currentProgrammer = 0;
 	
 	private void insert() {
 		func.clr();
@@ -31,17 +31,42 @@ public class Main {
 		salary = func.salaryMaker(position);
 		System.out.printf("%s's Salary -> %.0f\n", name, salary);
 		
+		int currentPositionSize = countPosition(position);
+		System.out.println("Current " + position + " is " + currentPositionSize);
+		
+		if((currentPositionSize + 1) % 3 == 1) {
+			getBonus(position);
+		}
+		
 		employee.add(new Employees(codeName, name, gender, position, salary));
+		
 		func.enter();
 		show();
 		func.enter();
 		menu();
 	}
 	
+	private int countPosition(String position) {
+		int counter = 0;
+		for(Employees e : employee) {
+			if(e.getPosition().equals(position)) {
+				counter++;
+			}
+		}
+		return counter;
+	}
+	
+	private void getBonus(String position) {
+		for(Employees e : employee) {
+			if(e.getPosition().equals(position)) {
+				e.setSalary(e.getSalary() * func.extraSalary(position) + e.getSalary());
+			}
+		}
+	}
+	
 	private void show() {
 		func.clr();
-		Collections.sort(employee, Comparator.comparing(Employees::getName));
-		
+//		Collections.sort(employee, Comparator.comparing(Employees::getName));
 		System.out.println("+---+-----------+----------------+-----------+------------+------------------+");
 		System.out.printf("|%-3s| %-10s| %-15s| %-10s| %-11s| %-17s|%n", "No", "Code Name", "Name", "Gender", "Position", "Salary");
 		System.out.println("+---+-----------+----------------+-----------+------------+------------------+");
@@ -99,9 +124,6 @@ public class Main {
 					System.out.println("Changed salary to Rp." + salary);
 				}
 			} while (!inputChoice.equals("Y") && !inputChoice.equals("N"));
-			
-			
-			
 		}
 		
 		func.enter();
@@ -167,11 +189,13 @@ public class Main {
 		case 5:
 			break;
 		}
+		
 	}
 	
 	public Main() {
-//		employee.add(new Employees("IP-1231", "Ipana", "Female", "asdijas", 12312));
-//		employee.add(new Employees("MC-123", "Aolin", "Male", "asdijas", 12312));  
+		employee.add(new Employees("SA-1231", "ASlda", "Male", "Supervisor", 6000000));
+		employee.add(new Employees("SA-1231", "ASlda", "Male", "Supervisor", 6000000));
+		employee.add(new Employees("SA-1231", "ASlda", "Male", "Supervisor", 6000000));
 		menu();
 //		System.out.println("asdasd");
 	}

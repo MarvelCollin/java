@@ -90,4 +90,15 @@ public class Functions {
 		
 		return false;
 	}
+	
+	protected double extraSalary(String position) {
+		if(position.equals("Manager")) {
+			return 10/100;
+		} else if(position.equals("Supervisor")) {
+			return 7.5/100;
+		} else {
+			return 5/100;
+		}
+	}
+	
 }	
