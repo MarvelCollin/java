@@ -51,4 +51,31 @@ public class Functions {
 		
 		return name;
 	}
+	
+	protected String inputGender(String name) {
+		String gender;
+		do {
+			System.out.print("Input " + name + "'s Gender [Male | Female] > ");
+			gender = s.nextLine();
+		} while(!gender.equals("Male") && !gender.equals("Female"));
+		
+		return gender;
+	}
+	
+	protected String inputPosition(String name) {
+		String position;
+		do {
+			System.out.print("Input " + name + "'s Position [Manager | Supervisor | Programmer] > ");
+			position = s.nextLine();
+		} while (!position.equals("Manager") && !position.equals("Supervisor") && !position.equals("Programmer"));
+		return position;
+	}
+	
+	protected void clr() {
+		for(int i = 0; i < 40; i++) {
+			System.out.println();
+		}
+	}
+	
+
 }	

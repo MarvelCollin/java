@@ -13,14 +13,8 @@ public class Main {
 	Functions func = new Functions();
 	private Vector<Employees> employee = new Vector<Employees>();
 	
-	private void clr() {
-		for(int i = 0; i < 40; i++) {
-			System.out.println();
-		}
-	}
-	
 	private void insert() {
-		clr();
+		func.clr();
 		String codeName = null;
 		String name = null;
 		String gender = null;
@@ -28,17 +22,9 @@ public class Main {
 		double salary = 0;
 		
 		name = func.inputName();
-		
-		do {
-			System.out.print("Input " + name + "'s Gender [Male | Female] > ");
-			gender = func.s.nextLine();
-		} while(!gender.equals("Male") && !gender.equals("Female"));
-		
-		do {
-			System.out.print("Input " + name + "'s Position [Manager | Supervisor | Programmer] > ");
-			position = func.s.nextLine();
-		} while (!position.equals("Manager") && !position.equals("Supervisor") && !position.equals("Programmer"));
-		
+		gender = func.inputGender(name);
+		position = func.inputPosition(name);
+
 		codeName = func.codeNameMaker();
 		System.out.println("Employees Code Name is " + codeName);
 		
@@ -49,9 +35,7 @@ public class Main {
 	}
 	
 	private void show() {
-		clr();
-		
-		
+		func.clr();
 		Collections.sort(employee, Comparator.comparing(Employees::getName));
 		
 		System.out.println("+---+-----------+----------------+-----------+------------+------------------+");
@@ -100,14 +84,14 @@ public class Main {
 	private void menu() {
 		int choice = 1;
 		do {
-			clr();
+			func.clr();
 			System.out.println("Input [1-5]");
 			System.out.println("1. Insert Employees");
 			System.out.println("2. View Employees");
 			System.out.println("3. Update Employees");
 			System.out.println("4. Delete Employees");
 			System.out.println("5. Exit Program");
-			System.out.print("Please input your choices > ");
+			System.out.print("Please input your choice > ");
 			choice = func.s.nextInt(); func.s.nextLine();
 		} while (choice < 1 || choice > 5);
 		
