@@ -24,32 +24,25 @@ public class Main {
 		String position = null;
 		double salary = 0;
 		
-//		- Kode Karyawan -> MM-XXXX (M -> Alphabeth; X -> Number) -> Random -> Unique
-//		- Gaji -> Manager -> 8jt | Supervisor -> 6jt | Admin -> 4jt
+		do {
+			System.out.print("Input Employees Name [min : 3]> ");
+			name = s.nextLine();
+		} while (name.length() < 3);
 		
-//		do {
-//			System.out.print("Input Employees Name [min : 3]> ");
-//			name = s.nextLine();
-//		} while (name.length() < 3);
-//		
-//		do {
-//			System.out.print("Input " + name + "'s Gender [Male | Female] > ");
-//			gender = s.nextLine();
-//		} while(!gender.equals("Male") && !gender.equals("Female"));
-//		// jika gender bukan Male atau Female maka akan ngulang
-//		
-//		do {
-//			System.out.print("Input " + name + "'s Position [Manager | Supervisor | Programmer] > ");
-//			position = s.nextLine();
-//		} while (!position.equals("Manager") && !position.equals("Supervisor") && !position.equals("Programmer"));
+		do {
+			System.out.print("Input " + name + "'s Gender [Male | Female] > ");
+			gender = s.nextLine();
+		} while(!gender.equals("Male") && !gender.equals("Female"));
+		
+		do {
+			System.out.print("Input " + name + "'s Position [Manager | Supervisor | Programmer] > ");
+			position = s.nextLine();
+		} while (!position.equals("Manager") && !position.equals("Supervisor") && !position.equals("Programmer"));
 		
 		String alphabeth = "QWERTYUIOPASDFGHJKLZXCVBNM";
 		
 		StringBuilder codeNameBuilder = new StringBuilder();
-		// supaya bisa .append()
 		
-		
-		//MM-XXXX -> size -> 7 -> Alphabeth(2) -(1) Number(4)
 		for(int i = 0; i < 7; i++) {
 			//MM
 			if(i < 2) {
@@ -62,10 +55,22 @@ public class Main {
 			}
 		}
 		
-		System.out.println(codeNameBuilder);
+		codeName = codeNameBuilder.toString();
+		System.out.println("Employees Code Name is " + codeName);
 		
+		switch(position) {
+		case "Manager":
+			salary = 8000000;
+			break;
+		case "Supervisor":
+			salary = 6000000;
+			break;
+		case "Programmer":
+			salary = 4000000;
+			break;
+		}
 		
-		
+		System.out.printf("%s's Salary -> %.0f\n", name, salary);
 
 	}
 	
