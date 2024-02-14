@@ -32,6 +32,10 @@ public class Main {
 		System.out.printf("%s's Salary -> %.0f\n", name, salary);
 		
 		employee.add(new Employees(codeName, name, gender, position, salary));
+		
+		show();
+		func.enter();
+		menu();
 	}
 	
 	private void show() {
@@ -70,16 +74,39 @@ public class Main {
 //		string -> indexOf
 		
 		String name = func.inputName();
-		if(func.isNot0(name)) employee.get(choice - 1).setName(name);
+		if(func.isNot0(name)) {
+			employee.get(choice - 1).setName(name);
+		} else {
+			name = employee.get(choice - 1).getName();
+		}
 
 		String gender = func.inputGender(name);
 		if(func.isNot0(gender)) employee.get(choice - 1).setGender(gender);
+	
 		
 		String position = func.inputPosition(name);
-		if(func.isNot0(position)) employee.get(choice - 1).setPosition(position);
+		if(func.isNot0(position)) {
+			String inputChoice = null;
+			do {
+				System.out.println("Are you sure want to change the position to " + position + " ?");
+				System.out.print("It will change the entire salary and reset[Y/N] > ");
+				inputChoice = func.s.nextLine();
+				if(inputChoice.equals("Y")) {
+					employee.get(choice - 1).setPosition(position);
+					double salary = func.salaryMaker(position);
+					employee.get(choice - 1).setSalary(salary);
+					System.out.println();
+					System.out.println("Changed salary to Rp." + salary);
+				}
+			} while (!inputChoice.equals("Y") && !inputChoice.equals("N"));
+			
+			
+			
+		}
 		
 		func.enter();
-		
+		show();
+		func.enter();
 		menu();
 		
 	}
@@ -117,8 +144,8 @@ public class Main {
 	}
 	
 	public Main() {
-		employee.add(new Employees("IP-1231", "Ipana", "Female", "asdijas", 12312));
-		employee.add(new Employees("MC-123", "Aolin", "Male", "asdijas", 12312));  
+//		employee.add(new Employees("IP-1231", "Ipana", "Female", "asdijas", 12312));
+//		employee.add(new Employees("MC-123", "Aolin", "Male", "asdijas", 12312));  
 		menu();
 //		System.out.println("asdasd");
 	}

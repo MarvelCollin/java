@@ -17,8 +17,7 @@ public class Functions {
 			if(i < 2) {
 				char randomCode = alphabeth.charAt(random.nextInt(alphabeth.length()));
 				codeNameBuilder.append(randomCode);
-			} else if(i ==-+
-					2) {
+			} else if(i == 2) {
 				codeNameBuilder.append("-");
 			} else {
 				codeNameBuilder.append(random.nextInt(9));
@@ -46,7 +45,7 @@ public class Functions {
 		do {
 			System.out.print("Input Employees Name [min : 3]> ");
 			name = s.nextLine();
-		} while (name.length() < 3 || !name.equals("0"));
+		} while (name.length() < 3 && !name.equals("0"));
 		
 		
 		return name;
@@ -81,6 +80,7 @@ public class Functions {
 	protected void enter() {
 		System.out.println("Press Anything to Continue");
 		s.nextLine();
+		clr();
 	}
 	
 	protected boolean isNot0(String value) {
