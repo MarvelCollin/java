@@ -32,7 +32,7 @@ public class Main {
 		System.out.printf("%s's Salary -> %.0f\n", name, salary);
 		
 		employee.add(new Employees(codeName, name, gender, position, salary));
-		
+		func.enter();
 		show();
 		func.enter();
 		menu();
@@ -108,7 +108,33 @@ public class Main {
 		show();
 		func.enter();
 		menu();
+	}
+	
+	private void delete() {
+		show();
 		
+		System.out.println();
+		
+		int choice = 0;
+		do {
+			System.out.print("Input number to Delete[1-" + employee.size() + "] > ");
+			choice = func.s.nextInt(); func.s.nextLine();
+		} while (choice < 1 || choice > employee.size());
+		
+		String inputChoice = null;
+		do {
+			System.out.print("Are you sure want to Delete " + 
+					employee.get(choice - 1).getName() + " ?[Y/N] > ");
+			inputChoice = func.s.nextLine();
+		} while (!inputChoice.equals("Y") && !inputChoice.equals("N"));
+		
+		if(inputChoice.equals("Y")) {
+			System.out.println("Deleted " + employee.get(choice - 1).getCodeName());
+			employee.remove(choice - 1);
+		}
+		
+		func.enter();
+		menu();
 	}
 	
 	private void menu() {
@@ -136,7 +162,7 @@ public class Main {
 			update();
 			break;
 		case 4:
-			System.out.println("Delete");
+			delete();
 			break;
 		case 5:
 			break;
