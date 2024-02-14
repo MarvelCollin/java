@@ -46,7 +46,7 @@ public class Functions {
 		do {
 			System.out.print("Input Employees Name [min : 3]> ");
 			name = s.nextLine();
-		} while (name.length() < 3);
+		} while (name.length() < 3 || !name.equals("0"));
 		
 		
 		return name;
@@ -57,7 +57,7 @@ public class Functions {
 		do {
 			System.out.print("Input " + name + "'s Gender [Male | Female] > ");
 			gender = s.nextLine();
-		} while(!gender.equals("Male") && !gender.equals("Female"));
+		} while(!gender.equals("Male") && !gender.equals("Female") && !gender.equals("0"));
 		
 		return gender;
 	}
@@ -67,7 +67,8 @@ public class Functions {
 		do {
 			System.out.print("Input " + name + "'s Position [Manager | Supervisor | Programmer] > ");
 			position = s.nextLine();
-		} while (!position.equals("Manager") && !position.equals("Supervisor") && !position.equals("Programmer"));
+		} while (!position.equals("Manager") && !position.equals("Supervisor") 
+				&& !position.equals("Programmer") && !position.equals("0"));
 		return position;
 	}
 	
