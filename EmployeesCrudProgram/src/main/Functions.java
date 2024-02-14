@@ -77,5 +77,16 @@ public class Functions {
 		}
 	}
 	
-
+	protected void enter() {
+		System.out.println("Press Anything to Continue");
+		s.nextLine();
+	}
+	
+	protected boolean isNot0(String value) {
+		if(!value.equals("0")) {
+			return true;
+		}
+		
+		return false;
+	}
 }	

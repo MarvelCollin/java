@@ -52,9 +52,7 @@ public class Main {
 	
 	private void view() {
 		show();
-		
-		System.out.println("Enter anything to continue...");
-		func.s.nextLine();
+		func.enter();
 		menu();
 	}
 	
@@ -71,11 +69,16 @@ public class Main {
 //		employee[1]; array -> get
 //		string -> indexOf
 		
+		String name = func.inputName();
+		if(func.isNot0(name)) employee.get(choice - 1).setName(name);
+
+		String gender = func.inputGender(name);
+		if(func.isNot0(gender)) employee.get(choice - 1).setGender(gender);
 		
-//		employee.get(choice - 1).setCodeName();
+		String position = func.inputPosition(name);
+		if(func.isNot0(position)) employee.get(choice - 1).setPosition(position);
 		
-		System.out.println("Press Anything to Continue");
-		func.s.nextLine();
+		func.enter();
 		
 		menu();
 		
