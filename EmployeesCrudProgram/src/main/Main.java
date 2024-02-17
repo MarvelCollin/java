@@ -39,8 +39,7 @@ public class Main {
 			
 			double percentSalary = func.extraSalary(position);
 			
-			System.out.println("Bonus sebesar " + percentSalary + "% telah diberikan"
-					+ "kepada karyawan dengan id ");
+			System.out.println("Bonus with total " + percentSalary + "% given to " );
 			for(Employees e : employee) {
 				if(e.getPosition().equals(position)) {
 					System.out.print(e.getCodeName() + ", ");
