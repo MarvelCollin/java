@@ -11,4 +11,5 @@
     <fullyQualifiedTypeName name="java.util.Scanner"/>
     <fullyQualifiedTypeName name="javax.xml.validation.Validator"/>
     <fullyQualifiedTypeName name="javax.xml.crypto.dsig.dom.DOMValidateContext"/>
+    <fullyQualifiedTypeName name="models.Vehicles"/>
 </qualifiedTypeNameHistroy>
