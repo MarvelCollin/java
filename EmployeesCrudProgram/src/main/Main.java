@@ -36,17 +36,18 @@ public class Main {
 		
 		if((currentPositionSize + 1) % 3 == 1) {
 			getBonus(position);
-		}
-		
-		double percentSalary = func.extraSalary(position);
-		
-		System.out.println("Bonus sebesar " + percentSalary + "% telah diberikan"
-				+ "kepada karyawan dengan id ");
-		for(Employees e : employee) {
-			if(e.getPosition().equals(position)) {
-				System.out.print(e.getCodeName() + ", ");
+			
+			double percentSalary = func.extraSalary(position);
+			
+			System.out.println("Bonus sebesar " + percentSalary + "% telah diberikan"
+					+ "kepada karyawan dengan id ");
+			for(Employees e : employee) {
+				if(e.getPosition().equals(position)) {
+					System.out.print(e.getCodeName() + ", ");
+				}
 			}
 		}
+		
 		
 		System.out.println();
 		employee.add(new Employees(codeName, name, gender, position, salary));
