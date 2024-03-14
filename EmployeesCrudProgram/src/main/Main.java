@@ -32,14 +32,14 @@ public class Main {
 		System.out.printf("%s's Salary -> %.0f\n", name, salary);
 		
 		int currentPositionSize = countPosition(position);
-		System.out.println("Current " + position + " is " + currentPositionSize);
+		System.out.println("Current " + position + " is " + currentPositionSize + 1);
 		
-		if((currentPositionSize + 1) % 3 == 1) {
+		if((currentPositionSize + 1) % 3 == 1 && currentPositionSize != 1) {
 			getBonus(position);
 			
 			double percentSalary = func.extraSalary(position);
 			
-			System.out.println("Bonus with total " + percentSalary + "% given to " );
+			System.out.println("Bonus with total " + percentSalary * 100 + "% given to " );
 			for(Employees e : employee) {
 				if(e.getPosition().equals(position)) {
 					System.out.print(e.getCodeName() + ", ");
