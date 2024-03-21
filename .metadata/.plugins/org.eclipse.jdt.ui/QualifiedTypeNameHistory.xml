@@ -19,6 +19,9 @@
     <fullyQualifiedTypeName name="models.Motorcycle"/>
     <fullyQualifiedTypeName name="javax.swing.SwingConstants"/>
     <fullyQualifiedTypeName name="javax.swing.JFrame"/>
+    <fullyQualifiedTypeName name="javax.swing.plaf.FontUIResource"/>
     <fullyQualifiedTypeName name="javax.swing.JPanel"/>
+    <fullyQualifiedTypeName name="java.awt.Graphics2D"/>
+    <fullyQualifiedTypeName name="java.awt.Font"/>
     <fullyQualifiedTypeName name="java.awt.Color"/>
 </qualifiedTypeNameHistroy>
