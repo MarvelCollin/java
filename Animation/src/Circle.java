@@ -24,7 +24,6 @@ public class Circle extends JPanel implements ActionListener {
         timer.start();
 
         width = height = 40;
-        restitutionCoefficient = 0.9;
         this.setBackground(Color.black);
     }
 
@@ -32,12 +31,15 @@ public class Circle extends JPanel implements ActionListener {
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
 
-        Graphics2D g2d = (Graphics2D) g.create();
+        Graphics2D d = (Graphics2D) g.create();
 
-        g2d.setColor(Color.red);
-        g2d.fillOval(x, y, width, height);
+        
+        
+        
+        d.setColor(Color.red);
+        d.fillOval(x, y, width, height);
 
-        g2d.dispose();
+        d.dispose();
     }
 
     public void actionPerformed(ActionEvent e) {
@@ -53,7 +55,7 @@ public class Circle extends JPanel implements ActionListener {
         
         if (y + height >= getHeight()) {
             y = getHeight() - height; 
-            speedY *= -0.9;
+            speedY *= -1;
             
             if (Math.abs(speedY) == 0) { 
                 timer.stop();
