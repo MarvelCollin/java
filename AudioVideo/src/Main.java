@@ -1,17 +1,17 @@
+import java.io.IOException;
+
+import javax.sound.sampled.LineUnavailableException;
+import javax.sound.sampled.UnsupportedAudioFileException;
 
 public class Main {
-
 	Frame f;
 	
 	public Main() {
-		// TODO Auto-generated constructor stub
+		f = new Frame();
 	}
 
 	public static void main(String[] args) {
-        javax.swing.SwingUtilities.invokeLater(() -> {
-            Frame frame = new Frame();
-            frame.start();
-        });
+      new Main();
     }
 
 }
