@@ -12,7 +12,6 @@ public class Circle extends JPanel implements ActionListener {
 
     private int x, y, width, height, speedX, speedY;
     private Timer timer;
-    private double restitutionCoefficient;
 
     public Circle() {
         x = 100; 
@@ -54,9 +53,9 @@ public class Circle extends JPanel implements ActionListener {
         
         if (y + height >= getHeight()) {
             y = getHeight() - height; 
-            speedY *= -1 * restitutionCoefficient;
+            speedY *= -0.9;
             
-            if (Math.abs(speedY) < 0) { 
+            if (Math.abs(speedY) == 0) { 
                 timer.stop();
             }
         }
