@@ -6,7 +6,6 @@ public class Frame extends JFrame {
 
     public Frame() {
     	audioPlayer = new AudioVideo();
-    	this.add(audioPlayer);
     	setTitle("Java Audio Player");
         setSize(400, 200);	
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

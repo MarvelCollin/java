@@ -4,10 +4,11 @@ import javax.sound.sampled.LineUnavailableException;
 import javax.sound.sampled.UnsupportedAudioFileException;
 
 public class Main {
-	Frame f;
+	AudioVideo v;
 	
 	public Main() {
-		f = new Frame();
+		v = new AudioVideo();
+				
 	}
 
 	public static void main(String[] args) {
