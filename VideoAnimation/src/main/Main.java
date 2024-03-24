@@ -5,10 +5,10 @@ import java.awt.Color;
 import javax.swing.JFrame;
 
 public class Main {
-	VideoAnimation v;
+	Frame f;
 	
   public Main() {
-	  v = new VideoAnimation();
+	  f = new Frame();
   }
 
   public static void main(String[] args) {
