@@ -56,4 +56,5 @@
     <fullyQualifiedTypeName name="java.lang.ArrayIndexOutOfBoundsException"/>
     <fullyQualifiedTypeName name="java.util.ArrayList"/>
     <fullyQualifiedTypeName name="models.Data"/>
+    <fullyQualifiedTypeName name="java.io.BufferedWriter"/>
 </qualifiedTypeNameHistroy>

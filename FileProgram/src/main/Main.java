@@ -16,32 +16,32 @@ public class Main {
 	String filePath = "data.txt";
 	Data data;
 
-	private void readFile() {	
-			datas.removeAll(datas);
-	        try {
+	private void init() {
+		 try {
 	            List <String> lines = Files.readAllLines(Paths.get(filePath));
 
 	            for (String line: lines) {
-	                String[] parts = line.split("#", 2);
-
-	                data = new Data(parts[0], Integer.parseInt(parts[1]));
-	                datas.add(data);
+	            	addToArrayList(line);
 	            }
 	        } catch (IOException e) {
 	            System.out.println("Failed");
 	        }
+	}
+	
+	private void addToArrayList(String text) {
+		String[] parts = text.split("#", 2);
 
+        data = new Data(parts[0], Integer.parseInt(parts[1]));
+        datas.add(data);
 	}
 	
 	private void writeFile(String text) {
+		addToArrayList(text);
 		try {
-//			readFile();
 
 			FileWriter w = new FileWriter(filePath, true);
-			
 			BufferedWriter buff = new BufferedWriter(w);
-			
-			buff.write(text);
+			buff.write(text + "\n");
 			buff.close();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
@@ -57,10 +57,8 @@ public class Main {
 	
     public Main() {
         // letakin file txt ke projectnya bukan di dalam src
-//    	writeFile("asdasdas");
-//    	readFile();
-    	writeFile("asdaasdasdasdass#1231231231\n");
-    	readFile();
+    	init();
+    	writeFile("asdaasdasdasdass#12312341");
     	printData();
     }
 
