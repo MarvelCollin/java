@@ -25,7 +25,7 @@ public class LandingPage {
             insertButton.setOnAction(e -> InsertWindow.display());
             viewButton.setOnAction(e -> ViewWindow.display());
             updateButton.setOnAction(e -> UpdateWindow.display());
-            deleteButton.setOnAction(e -> DeleteWindow.display());
+//            deleteButton.setOnAction(e -> DeleteWindow.display());
 
             root.setCenter(buttonBox);
 
