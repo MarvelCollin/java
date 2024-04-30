@@ -20,6 +20,10 @@ public class Main extends Application {
 
     public static void main(String[] args) {
         launch(args);
+        
+        // database name -> javafxcrud
+        // table name -> items
+        // table contain -> code, name, price, stock
     }
 
     private void insertDummyData() {
