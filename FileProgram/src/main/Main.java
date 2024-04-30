@@ -7,6 +7,7 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 import models.Data;
 
@@ -15,7 +16,13 @@ public class Main {
 	List < Data > datas = new ArrayList <> ();
 	String filePath = "data.txt";
 	Data data;
+	Scanner s = new Scanner(System.in);
 
+	private void enter() {
+		System.out.println("Please input anything to continue [dont forget to enter]");
+		s.nextLine();
+	}
+	
 	private void init() {
 		 try {
 	            List <String> lines = Files.readAllLines(Paths.get(filePath));
@@ -36,8 +43,8 @@ public class Main {
 	}
 	
 	private void writeFile(String text) {
-		addToArrayList(text);
 		try {
+			addToArrayList(text);
 
 			FileWriter w = new FileWriter(filePath, true);
 			BufferedWriter buff = new BufferedWriter(w);
@@ -55,11 +62,69 @@ public class Main {
         }
 	}
 	
+	private void update() {
+		
+	}
+
+	private void addMenu() {
+		String name, balance;
+		System.out.print("Input name > ");
+		name = s.nextLine();
+
+		System.out.print("Input balance > ");
+		balance = s.nextLine();
+		
+		String text = name + "#" + balance;
+//		writeFile(text);
+		enter();
+		menu();
+	}
+	
+	private void displayMenu() {
+		
+	}
+	
+	private void updateMenu() {
+		
+	}
+	
+	private void deleteMenu() {
+		
+	}
+	
+	private void menu() {
+		int choice;
+		System.out.println("1. Add");
+		System.out.println("2. View");
+		System.out.println("3. Update");
+		System.out.println("4. Delete");
+		System.out.print("Input Choice > ");
+		choice = s.nextInt(); s.nextLine();
+		
+		switch(choice) {
+		case 1: 
+			addMenu();
+			break;
+		case 2:
+			displayMenu();
+			break;
+		case 3: 
+			updateMenu();
+			break;
+		case 4: 
+			deleteMenu();
+			break;
+		default: 
+			menu();
+			break;
+		}
+	}
+	
     public Main() {
         // letakin file txt ke projectnya bukan di dalam src
     	init();
-    	writeFile("asdaasdasdasdass#12312341");
-    	printData();
+//    	writeFile("asdaasdasdasdass#12312341");
+    	menu();
     }
 
     public static void main(String[] args) {
