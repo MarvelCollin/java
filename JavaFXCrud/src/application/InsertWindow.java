@@ -21,7 +21,6 @@ public class InsertWindow {
         grid.setVgap(10);
         grid.setHgap(10);
 
-        // Labels
         Label nameLabel = new Label("Name:");
         GridPane.setConstraints(nameLabel, 0, 0);
         Label priceLabel = new Label("Price:");
@@ -29,7 +28,6 @@ public class InsertWindow {
         Label stockLabel = new Label("Stock:");
         GridPane.setConstraints(stockLabel, 0, 2);
 
-        // Text fields
         TextField nameInput = new TextField();
         GridPane.setConstraints(nameInput, 1, 0);
         TextField priceInput = new TextField();
@@ -37,7 +35,6 @@ public class InsertWindow {
         TextField stockInput = new TextField();
         GridPane.setConstraints(stockInput, 1, 2);
 
-        // Button
         Button addButton = new Button("Add Item");
         GridPane.setConstraints(addButton, 1, 3);
         addButton.setOnAction(e -> {

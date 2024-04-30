@@ -23,8 +23,8 @@ public class Main extends Application {
     }
 
     private void insertDummyData() {
-        insertData("ABC123", "Item1", 10.99, 100);
-        insertData("DEF456", "Item2", 20.50, 50);
+//        insertData("ABC123", "Item1", 10.99, 100);
+//        insertData("DEF456", "Item2", 20.50, 50);
     }
 
     public void insertData(String code, String name, double price, int stock) {

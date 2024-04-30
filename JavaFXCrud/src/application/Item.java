@@ -87,16 +87,42 @@ public class Item {
         return itemList;
     }
 
-    // Other CRUD methods: updateItem, deleteItem
+    public static void updateItem(String code, String name, double price, int stock) {
+        Connection connection = DatabaseConnection.connect();
+        if (connection != null) {
+            try {
+                String sql = "UPDATE items SET name = ?, price = ?, stock = ? WHERE code = ?";
+                PreparedStatement preparedStatement = connection.prepareStatement(sql);
+                preparedStatement.setString(1, name);
+                preparedStatement.setDouble(2, price);
+                preparedStatement.setInt(3, stock);
+                preparedStatement.setString(4, code);
+
+                int rowsAffected = preparedStatement.executeUpdate();
+
+                if (rowsAffected > 0) {
+                    System.out.println("Item updated successfully.");
+                } else {
+                    System.out.println("Failed to update item.");
+                }
+
+                preparedStatement.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            } finally {
+                DatabaseConnection.close(connection);
+            }
+        } else {
+            System.out.println("Failed to connect to the database.");
+        }
+    }
 
     private static String generateRandomCode() {
         Random rand = new Random();
         StringBuilder codeBuilder = new StringBuilder("PD-");
         for (int i = 0; i < 3; i++) {
-            codeBuilder.append(rand.nextInt(10)); // Generates random number between 0 and 9
+            codeBuilder.append(rand.nextInt(10)); 
         }
         return codeBuilder.toString();
     }
-
-    // Getters and setters
 }
