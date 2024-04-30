@@ -148,6 +148,34 @@ public class Item {
             System.out.println("Failed to connect to the database.");
         }
     }
+    
+    public static void deleteItem(String code) {
+        Connection connection = DatabaseConnection.connect();
+        if (connection != null) {
+            try {
+                String sql = "DELETE FROM items WHERE code = ?";
+                PreparedStatement preparedStatement = connection.prepareStatement(sql);
+                preparedStatement.setString(1, code);
+
+                int rowsAffected = preparedStatement.executeUpdate();
+
+                if (rowsAffected > 0) {
+                    System.out.println("Item deleted successfully.");
+                } else {
+                    System.out.println("Failed to delete item.");
+                }
+
+                preparedStatement.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            } finally {
+                DatabaseConnection.close(connection);
+            }
+        } else {
+            System.out.println("Failed to connect to the database.");
+        }
+    }
+
 
     private static String generateRandomCode() {
         Random rand = new Random();
