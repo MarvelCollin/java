@@ -1,10 +1,18 @@
 package application;
 
+import java.awt.FlowLayout;
+import java.awt.TextArea;
 
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.CheckBox;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
+import javafx.scene.control.PasswordField;
+import javafx.scene.control.RadioButton;
+import javafx.scene.control.TextField;
+import javafx.scene.control.ToggleGroup;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.GridPane;
@@ -12,46 +20,96 @@ import javafx.stage.Stage;
 
 public class Main extends Application{
 
-//	Scene scene = new Scene(new BorderPane());
 	Scene scene;
-	BorderPane layoutBorder;
-	GridPane gridLayout;
-	FlowPane flowLayout;
+	BorderPane mainLayout;
+	FlowLayout flowLayout;
+	GridPane topLayout, centerLayout, botLayout;
+	FlowPane flowName, flowjenisKelamin;
 	
-	Button btn1, btn2, btn3, btn4;
+	Label logo, title, name, password, confirm, address, jenisKelamin, status;
+	
+	TextField firstNameInput, lastNameInput;	
+	PasswordField passInput, confirmPasswordInput;
+	TextArea addressInput;
+	RadioButton priaInput, wanitaInput;
+	ToggleGroup jenisKelaminGroup;
+	ComboBox<String> statusInput;
+	
+	CheckBox agree;
+	
+	Button submit;
+	
+	public void initTop() {
+		logo = new Label("Regis");
+		title = new Label("Register Your Account");
+		
+		topLayout.add(logo, 0, 0);
+		topLayout.add(title, 1, 0);
+	}
+	
+	public void initBot() {
+		agree = new CheckBox("Saya Setuju");
+		submit = new Button("Submit");
+		
+		botLayout.add(agree,0, 0);
+		botLayout.add(submit, 0, 1);
+	}
+	
+	public void initCenter() {
+		name = new Label("Username : ");
+		password = new Label("Password : ");
+		confirm = new Label("Confirm Password : ");
+		address = new Label("Address : ");
+		jenisKelamin = new Label("Jenis Kelamin : ");
+		status = new Label("Status : ");
+		
+		firstNameInput = new TextField("Nama Depan");
+		lastNameInput = new TextField("Nama Belakang");
+		passInput = new PasswordField();
+		confirmPasswordInput = new PasswordField();
+		addressInput = new TextArea("Address");
+		priaInput = new RadioButton("Pria");
+		wanitaInput = new RadioButton("Wanita");
+		jenisKelaminGroup = new ToggleGroup();
+		statusInput = new ComboBox<String>();
+		
+		centerLayout.add(name, 0, 0);
+		centerLayout.add(password, 0,1);
+		centerLayout.add(confirm, 0,2);
+		centerLayout.add(address, 0,3);
+		centerLayout.add(jenisKelamin, 0,4);
+		centerLayout.add(status, 0,5);
+		
+		centerLayout.add(firstNameInput, 1, 0);
+		
+	}
+	
 	
 	public void initialize() {
-		layoutBorder = new BorderPane();
-		gridLayout = new GridPane();
-		flowLayout = new FlowPane();
+		mainLayout = new BorderPane();
+		topLayout = new GridPane();
+		centerLayout = new GridPane();
+		botLayout = new GridPane();
 		
-		btn1 = new Button("Button 1");
-		btn2 = new Button("Button 2");
-		btn3 = new Button("Button 3");
-		btn4 = new Button("Button 4");
+		flowName = new FlowPane();
+		flowjenisKelamin = new FlowPane();
 		
-//		flowLayout.getChildren().add(btn1);
-//		flowLayout.getChildren().add(btn2);
-//		flowLayout.getChildren().add(btn3);
-//		flowLayout.getChildren().add(btn4);
+		mainLayout.setTop(topLayout);
+		mainLayout.setCenter(centerLayout);
+		mainLayout.setBottom(botLayout);
 		
-//		scene = new Scene(flowLayout, 500, 500);
+		scene = new Scene(mainLayout, 500,500);
 		
-		gridLayout.add(btn1, 0, 0);
-		gridLayout.add(btn2, 1, 0);
-		gridLayout.add(btn3, 0, 1);
-		gridLayout.add(btn4, 1, 1);
-		
-		scene = new Scene(gridLayout, 500, 500);
+		initTop();
+		initBot();
+		initCenter();
 	}
 	
 	@Override
 	public void start(Stage stage) throws Exception {
 		initialize();
 		stage.setTitle("Form Registrasi");
-		
-//		stage.setFullScreen(true);
-		
+		stage.setResizable(false);
 		stage.setScene(scene);
 		stage.show();
 	}
