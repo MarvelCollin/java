@@ -8,8 +8,8 @@ public class Main {
     Scanner s = new Scanner(System.in);
     
     char[][] map = new char[ySize][xSize];
-    int yPlayer = 3, xPlayer = 3;
     int yCamera = 3, xCamera = 3;
+    int yPlayer = 1, xPlayer = 2;
     
 	public Main() {
 		initializeMap(map);
@@ -23,25 +23,26 @@ public class Main {
 	
 	void move() {
 		String input;
-		System.out.print(">> ");
-		int shadowX = 0, shadowY = 0;
 		
+		System.out.print(">> ");
 		input = s.nextLine();
+		
+		int shadowX = 0, shadowY = 0;
 		
 		if(input.equals("w")) {
 			shadowY = -1;
-		} else if(input.equals("a")) {
-			shadowX = -1;
 		} else if(input.equals("d")) {
 			shadowX = 1;
 		} else if(input.equals("s")) {
 			shadowY = 1;
+		} else if(input.equals("a")) {
+			shadowX = -1;
 		} else {
 			move();
 			return;
 		}
 		
-		// checker 
+		// checker
 		
 		yPlayer += shadowY;
 		xPlayer += shadowX;
@@ -72,17 +73,19 @@ public class Main {
     	int yAngle = yCamera / 2;
     	int xAngle = xCamera / 2;
     	
-    	for(int i = yPlayer - yAngle; i <= yPlayer + yAngle; i++) {
-    		for(int j = xPlayer - xAngle; j <= xPlayer + xAngle; j++) {
+    	// 1,1 -> 3,3 
+    	for (int i = yPlayer - yAngle; i <= yPlayer + yAngle; i++) {
+    		for (int j = xPlayer - xAngle; j <= xPlayer + xAngle; j++) {
     			if(i == yPlayer && j == xPlayer) {
     				System.out.print("X ");
     			} else {
     				System.out.print(map[i][j] + " ");
     			}
-        	}
+    		}
     		System.out.println();
-    	}
+		}
     }
+    
     
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
