@@ -1,7 +1,6 @@
 package application;
 
 import java.awt.FlowLayout;
-import java.awt.TextArea;
 
 import javafx.application.Application;
 import javafx.scene.Scene;
@@ -11,6 +10,7 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.RadioButton;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.layout.BorderPane;
@@ -45,6 +45,7 @@ public class Main extends Application{
 		
 		topLayout.add(logo, 0, 0);
 		topLayout.add(title, 1, 0);
+		topLayout.setHgap(100);
 	}
 	
 	public void initBot() {
@@ -67,7 +68,7 @@ public class Main extends Application{
 		lastNameInput = new TextField("Nama Belakang");
 		passInput = new PasswordField();
 		confirmPasswordInput = new PasswordField();
-		addressInput = new TextArea("Address");
+		addressInput = new TextArea();
 		priaInput = new RadioButton("Pria");
 		wanitaInput = new RadioButton("Wanita");
 		jenisKelaminGroup = new ToggleGroup();
@@ -80,8 +81,20 @@ public class Main extends Application{
 		centerLayout.add(jenisKelamin, 0,4);
 		centerLayout.add(status, 0,5);
 		
-		centerLayout.add(firstNameInput, 1, 0);
+		centerLayout.setHgap(100);
+		priaInput.setToggleGroup(jenisKelaminGroup);
+		wanitaInput.setToggleGroup(jenisKelaminGroup);
+		statusInput.getItems().add("Single");
+		statusInput.getItems().add("Married");
 		
+		centerLayout.add(firstNameInput, 1, 0);
+		centerLayout.add(lastNameInput, 2, 0);
+		centerLayout.add(passInput, 1, 1);
+		centerLayout.add(confirmPasswordInput, 1, 2);
+		centerLayout.add(addressInput, 1, 3);
+		centerLayout.add(priaInput, 1, 4);
+		centerLayout.add(wanitaInput, 2, 4);
+		centerLayout.add(statusInput, 1, 5);
 	}
 	
 	
@@ -97,12 +110,13 @@ public class Main extends Application{
 		mainLayout.setTop(topLayout);
 		mainLayout.setCenter(centerLayout);
 		mainLayout.setBottom(botLayout);
-		
+			
 		scene = new Scene(mainLayout, 500,500);
 		
+		initCenter();
 		initTop();
 		initBot();
-		initCenter();
+		
 	}
 	
 	@Override
