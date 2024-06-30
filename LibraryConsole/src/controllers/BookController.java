@@ -40,6 +40,49 @@ public class BookController {
 		return books;
 	}
 	
+	public void insertBook(String name, String author) {
+		String query = "INSERT INTO books (name, author) VALUES (?,?)";
+		
+		PreparedStatement statement;
+		try {
+			statement = conn.getConn().prepareStatement(query);
+			statement.setString(1, name);
+			statement.setString(2, author);
+			statement.executeUpdate();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+    public void update(Integer id, String name, String author) {
+        String query = "UPDATE books SET name = ?, author = ? WHERE id = ?";
+        
+        try {
+            PreparedStatement stmt = conn.getConn().prepareStatement(query);
+            stmt.setString(1, name);
+            stmt.setString(2, author);
+            stmt.setInt(3, id);
+            stmt.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+	
+    public void remove(Integer id) {
+    	String query = "DELETE FROM books WHERE id = ?";
+    	
+    	try {
+			PreparedStatement stmt = conn.getConn().prepareStatement(query);
+			stmt.setInt(1, id);
+			stmt.executeUpdate();
+    	} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+    }
+    
+    
 	public void navigateToMenu() {
 		bookView.showMenu();
 	}
@@ -50,10 +93,15 @@ public class BookController {
 				bookView.displayBooks(getBooks());
 				break;
 			case "2":
+				bookView.insertBooks();
 				break;
 			case "3":
+				bookView.displayBooks(getBooks());
+				bookView.updateBooks();
 				break;
 			case "4":
+				bookView.displayBooks(getBooks());
+				bookView.deleteBook();
 				break;
 			default:
 				break;
