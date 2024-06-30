@@ -1,8 +1,10 @@
 package views;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 import controllers.BookController;
+import models.Book;
 
 public class BookView {
 	private BookController bookController;
@@ -21,6 +23,14 @@ public class BookView {
 		System.out.println(">>");
 		
 		bookController.handleMenu(s.nextLine());
+	}
+	
+	public void displayBooks(ArrayList<Book> books) {
+		System.out.println("Current Books: ");
+		for (Book book : books) {
+			System.out.println(book.getId() + " " + book.getAuthor() + " " + book.getName());
+			
+		}
 		
 	}
 	

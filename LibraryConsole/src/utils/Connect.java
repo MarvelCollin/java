@@ -1,6 +1,5 @@
 package utils;
 
-import java.awt.dnd.DragGestureEvent;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -11,7 +10,7 @@ public class Connect {
 	private final String PASSWORD = "";
 	private final String HOST = "localhost:3306"; // bisa liat di xampp
 	private final String DATABASE = "library";
-	private final String CONNECTION = String.format("jbdc:mysql://%s/%s", HOST, DATABASE);
+	private final String CONNECTION = String.format("jdbc:mysql://%s/%s", HOST, DATABASE);
 	
 	private Connection conn;
 	

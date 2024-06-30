@@ -40,9 +40,14 @@ public class BookController {
 		return books;
 	}
 	
+	public void navigateToMenu() {
+		bookView.showMenu();
+	}
+	
 	public void handleMenu(String choice) {
 		switch(choice) {
 			case "1":
+				bookView.displayBooks(getBooks());
 				break;
 			case "2":
 				break;
