@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<item key="org.eclipse.jdt.ui.last.selected.jre.kind2" value="2"/>
-	<item key="org.eclipse.jdt.ui.last.selected.execution.enviroment" value="J2SE-1.5"/>
+	<item key="org.eclipse.jdt.ui.last.selected.execution.enviroment" value="JavaSE-11"/>
 	<item key="org.eclipse.jdt.ui.lastextjar" value="C:\BINUS\ASLAB24-2\Core Training\Java\setup"/>
 	<item key="UserLibraryLoadSaveDialog.size" value="480,510"/>
 	<item key="SearchScopeActionGroup.search_scope_type" value="1"/>
@@ -29,7 +29,7 @@
 		<item key="org.eclipse.jdt.ui.typecomment.deprecated" value="true"/>
 	</section>
 	<section name="NewClassWizardPage">
-		<item key="create_constructor" value="false"/>
+		<item key="create_constructor" value="true"/>
 		<item key="create_unimplemented" value="true"/>
 	</section>
 	<section name="NewPackageWizardPage">

@@ -22,13 +22,13 @@ public class Connect {
 		// makanya harus menggunakan synchronized
 
 		// dan supaya ga kedelay harus pake double check locking (jadi kasi check instance == null 2x)
-		if(instance == null) { // biar ga waiting ke semua threadnya
-			synchronized (Connect.class) { // make sure satu thread lewat baru giliran yang lain
+//		if(instance == null) { // biar ga waiting ke semua threadnya
+//			synchronized (Connect.class) { // make sure satu thread lewat baru giliran yang lain
 				if(instance == null) {
 					instance = new Connect();
 				}
-			}
-		}
+//			}
+//		}
 		return instance;
 	}
 	
