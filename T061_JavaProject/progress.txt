@@ -1,0 +1,23 @@
+JavaH1
+- JDBC, MVC
+
+JavaH2
+- Login, Register (Tidak Lengkap), Forgot password Frontend + Backend
+- Models table
+
+JavaH3
+- Home Page Layout (Dummy Data)
+- Play Music
+- Volume Controller
+- Scroll
+- Profile Update (Belum backend)
+
+JAVAH3S1
+- Perbaiki Backend Password & Register Backend (belum selesai)
+
+JAVAH3S2
+- Perbaiki Register
+
+
+Softskill
+- Tambahin playlist section (blm seelsai)

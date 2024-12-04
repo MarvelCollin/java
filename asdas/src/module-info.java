@@ -1,4 +1,4 @@
-module JavaFXCrud {
+module asdas {
 	requires javafx.controls;
 	
 	opens application to javafx.graphics, javafx.fxml;

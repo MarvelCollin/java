@@ -1,0 +1,4 @@
+- Login 
+- Register
+- All models (tiap table cuman encapsulation)
+- MVC Concepts

@@ -11,7 +11,7 @@ public class Connect {
 	private final String HOST = "localhost:3306"; // bisa liat di xampp
 	private final String DATABASE = "library";
 	private final String CONNECTION = String.format("jdbc:mysql://%s/%s", HOST, DATABASE);
-	
+
 	private Connection conn;
 	
 	private static volatile Connect instance;

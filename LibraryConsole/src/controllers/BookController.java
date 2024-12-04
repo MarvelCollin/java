@@ -33,7 +33,6 @@ public class BookController {
 				books.add(new Book(id, name, author));
 			}
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
@@ -82,7 +81,6 @@ public class BookController {
 		}
     }
     
-    
 	public void navigateToMenu() {
 		bookView.showMenu();
 	}
@@ -90,17 +88,17 @@ public class BookController {
 	public void handleMenu(String choice) {
 		switch(choice) {
 			case "1":
-				bookView.displayBooks(getBooks());
+//				bookView.displayBooks(getBooks());
 				break;
 			case "2":
 				bookView.insertBooks();
 				break;
 			case "3":
-				bookView.displayBooks(getBooks());
+//				bookView.displayBooks(getBooks());
 				bookView.updateBooks();
 				break;
 			case "4":
-				bookView.displayBooks(getBooks());
+//				bookView.displayBooks(getBooks());
 				bookView.deleteBook();
 				break;
 			default:
